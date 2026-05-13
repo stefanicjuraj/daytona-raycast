@@ -27,6 +27,12 @@
       "title": "Create Snapshot",
       "description": "Create a Daytona snapshot from a base image.",
       "mode": "view"
+    },
+    {
+      "name": "quick-create-sandbox",
+      "title": "Quick Create Sandbox",
+      "description": "Create a default Daytona sandbox instantly.",
+      "mode": "no-view"
     }
   ],
   "preferences": [
