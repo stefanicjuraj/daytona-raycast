@@ -10,9 +10,18 @@ type Preferences = {
 type FormValues = {
   name: string;
   language: string;
+  snapshot?: string;
+  publicPreview?: string;
+  ephemeral?: string;
 };
 
 export default function CreateSandboxCommand() {
+  function parseOptionalBoolean(value: string | undefined): boolean | undefined {
+    if (value === "true") return true;
+    if (value === "false") return false;
+    return undefined;
+  }
+
   async function handleSubmit(values: FormValues) {
     const preferences = getPreferenceValues<Preferences>();
 
@@ -34,6 +43,9 @@ export default function CreateSandboxCommand() {
       const sandbox = await daytona.create({
         name: values.name.trim() || undefined,
         language: values.language,
+        snapshot: values.snapshot?.trim() || undefined,
+        public: parseOptionalBoolean(values.publicPreview),
+        ephemeral: parseOptionalBoolean(values.ephemeral),
       });
 
       toast.style = Toast.Style.Success;
@@ -64,6 +76,16 @@ export default function CreateSandboxCommand() {
         <Form.Dropdown.Item title="Python" value={CodeLanguage.PYTHON} />
         <Form.Dropdown.Item title="TypeScript" value={CodeLanguage.TYPESCRIPT} />
         <Form.Dropdown.Item title="JavaScript" value={CodeLanguage.JAVASCRIPT} />
+      </Form.Dropdown>
+      <Form.Separator />
+      <Form.TextField id="snapshot" title="Snapshot" placeholder="Snapshot name" />
+      <Form.Dropdown id="publicPreview" title="Public Preview Access" defaultValue="false">
+        <Form.Dropdown.Item title="Enabled" value="true" />
+        <Form.Dropdown.Item title="Disabled" value="false" />
+      </Form.Dropdown>
+      <Form.Dropdown id="ephemeral" title="Ephemeral Sandbox" defaultValue="false">
+        <Form.Dropdown.Item title="Enabled" value="true" />
+        <Form.Dropdown.Item title="Disabled" value="false" />
       </Form.Dropdown>
     </Form>
   );
