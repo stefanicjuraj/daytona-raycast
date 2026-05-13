@@ -2,7 +2,7 @@
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "daytona",
   "title": "Daytona",
-  "description": "",
+  "description": "Create and manage Daytona sandboxes from Raycast.",
   "icon": "icon.png",
   "author": "stefanicjuraj",
   "categories": [
@@ -11,13 +11,53 @@
   "license": "MIT",
   "commands": [
     {
-      "name": "index",
-      "title": "Run AI Code",
-      "description": "",
+      "name": "create-sandbox",
+      "title": "Create Sandbox",
+      "description": "Create a new Daytona sandbox.",
       "mode": "view"
     }
   ],
+  "preferences": [
+    {
+      "name": "apiKey",
+      "title": "API Key",
+      "description": "Your Daytona API key.",
+      "type": "password",
+      "required": true
+    },
+    {
+      "name": "apiUrl",
+      "title": "API URL",
+      "description": "Daytona API URL.",
+      "type": "textfield",
+      "required": false,
+      "default": "https://app.daytona.io/api"
+    },
+    {
+      "name": "target",
+      "title": "Default Target",
+      "description": "Default region target for new sandboxes.",
+      "type": "dropdown",
+      "required": false,
+      "default": "auto",
+      "data": [
+        {
+          "title": "Auto",
+          "value": "auto"
+        },
+        {
+          "title": "US",
+          "value": "us"
+        },
+        {
+          "title": "EU",
+          "value": "eu"
+        }
+      ]
+    }
+  ],
   "dependencies": {
+    "@daytona/sdk": "^0.175.0",
     "@raycast/api": "^1.40.0"
   },
   "devDependencies": {
