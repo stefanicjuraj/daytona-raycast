@@ -21,6 +21,12 @@
       "title": "Run Code",
       "description": "Run code in a Daytona sandbox.",
       "mode": "view"
+    },
+    {
+      "name": "create-snapshot",
+      "title": "Create Snapshot",
+      "description": "Create a Daytona snapshot from a base image.",
+      "mode": "view"
     }
   ],
   "preferences": [
