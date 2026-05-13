@@ -33,6 +33,12 @@
       "title": "Quick Create Sandbox",
       "description": "Create a default Daytona sandbox instantly.",
       "mode": "no-view"
+    },
+    {
+      "name": "documentation",
+      "title": "Documentation",
+      "description": "Open Daytona documentation.",
+      "mode": "no-view"
     }
   ],
   "preferences": [
