@@ -1,4 +1,4 @@
-import { Action, ActionPanel, Form, Toast, getPreferenceValues, showToast } from "@raycast/api";
+import { Action, ActionPanel, Form, Toast, getPreferenceValues, open, showToast } from "@raycast/api";
 import { CodeLanguage, Daytona, DaytonaError } from "@daytona/sdk";
 
 type Preferences = {
@@ -39,6 +39,10 @@ export default function CreateSandboxCommand() {
       toast.style = Toast.Style.Success;
       toast.title = "Sandbox created";
       toast.message = `${sandbox.name} (${sandbox.id})`;
+      toast.primaryAction = {
+        title: "Open in Dashboard",
+        onAction: () => open(`https://app.daytona.io/dashboard/sandboxes?sandboxId=${sandbox.id}`),
+      };
     } catch (error) {
       const message = error instanceof DaytonaError || error instanceof Error ? error.message : String(error);
       toast.style = Toast.Style.Failure;
