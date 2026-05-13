@@ -15,6 +15,12 @@
       "title": "Create Sandbox",
       "description": "Create a new Daytona sandbox.",
       "mode": "view"
+    },
+    {
+      "name": "run-code",
+      "title": "Run Code",
+      "description": "Run code in a Daytona sandbox.",
+      "mode": "view"
     }
   ],
   "preferences": [
