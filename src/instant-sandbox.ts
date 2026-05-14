@@ -7,14 +7,14 @@ type Preferences = {
   target?: string;
 };
 
-export default async function QuickCreateSandboxCommand() {
+export default async function InstantSandboxCommand() {
   const preferences = getPreferenceValues<Preferences>();
   const target = preferences.target && preferences.target !== "auto" ? preferences.target : undefined;
   const apiUrl = preferences.apiUrl?.trim() || undefined;
 
   const toast = await showToast({
     style: Toast.Style.Animated,
-    title: "Creating default sandbox",
+    title: "Creating instant sandbox",
   });
 
   try {
@@ -38,7 +38,7 @@ export default async function QuickCreateSandboxCommand() {
   } catch (error) {
     const message = error instanceof DaytonaError || error instanceof Error ? error.message : String(error);
     toast.style = Toast.Style.Failure;
-    toast.title = "Quick create failed";
+    toast.title = "Instant sandbox failed";
     toast.message = message;
   }
 }

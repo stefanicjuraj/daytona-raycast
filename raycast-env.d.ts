@@ -26,8 +26,8 @@ declare namespace Preferences {
   export type RunCode = ExtensionPreferences & {}
   /** Preferences accessible in the `create-snapshot` command */
   export type CreateSnapshot = ExtensionPreferences & {}
-  /** Preferences accessible in the `quick-create-sandbox` command */
-  export type QuickCreateSandbox = ExtensionPreferences & {}
+  /** Preferences accessible in the `instant-sandbox` command */
+  export type InstantSandbox = ExtensionPreferences & {}
   /** Preferences accessible in the `read-documentation` command */
   export type ReadDocumentation = ExtensionPreferences & {}
   /** Preferences accessible in the `open-dashboard` command */
@@ -45,8 +45,8 @@ declare namespace Arguments {
   export type RunCode = {}
   /** Arguments passed to the `create-snapshot` command */
   export type CreateSnapshot = {}
-  /** Arguments passed to the `quick-create-sandbox` command */
-  export type QuickCreateSandbox = {}
+  /** Arguments passed to the `instant-sandbox` command */
+  export type InstantSandbox = {}
   /** Arguments passed to the `read-documentation` command */
   export type ReadDocumentation = {}
   /** Arguments passed to the `open-dashboard` command */

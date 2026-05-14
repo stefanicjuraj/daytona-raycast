@@ -32,9 +32,9 @@
       "mode": "view"
     },
     {
-      "name": "quick-create-sandbox",
-      "title": "Quick Create Sandbox",
-      "description": "Create a default Daytona sandbox instantly.",
+      "name": "instant-sandbox",
+      "title": "Instant Sandbox",
+      "description": "Instantly create a default Daytona sandbox.",
       "mode": "no-view"
     },
     {
