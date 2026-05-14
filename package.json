@@ -38,14 +38,14 @@
       "mode": "no-view"
     },
     {
-      "name": "documentation",
-      "title": "Documentation",
-      "description": "Open Daytona documentation.",
+      "name": "read-documentation",
+      "title": "Read Documentation",
+      "description": "Read Daytona documentation.",
       "mode": "no-view"
     },
     {
-      "name": "dashboard",
-      "title": "Dashboard",
+      "name": "open-dashboard",
+      "title": "Open Dashboard",
       "description": "Open Daytona dashboard.",
       "mode": "no-view"
     },
@@ -53,6 +53,12 @@
       "name": "sandbox-web-terminal",
       "title": "Sandbox Web Terminal",
       "description": "Open Daytona web terminal for a sandbox.",
+      "mode": "view"
+    },
+    {
+      "name": "manage-sandboxes",
+      "title": "Manage Sandboxes",
+      "description": "View and manage Daytona sandboxes.",
       "mode": "view"
     }
   ],

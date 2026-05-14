@@ -28,12 +28,14 @@ declare namespace Preferences {
   export type CreateSnapshot = ExtensionPreferences & {}
   /** Preferences accessible in the `quick-create-sandbox` command */
   export type QuickCreateSandbox = ExtensionPreferences & {}
-  /** Preferences accessible in the `documentation` command */
-  export type Documentation = ExtensionPreferences & {}
-  /** Preferences accessible in the `dashboard` command */
-  export type Dashboard = ExtensionPreferences & {}
+  /** Preferences accessible in the `read-documentation` command */
+  export type ReadDocumentation = ExtensionPreferences & {}
+  /** Preferences accessible in the `open-dashboard` command */
+  export type OpenDashboard = ExtensionPreferences & {}
   /** Preferences accessible in the `sandbox-web-terminal` command */
   export type SandboxWebTerminal = ExtensionPreferences & {}
+  /** Preferences accessible in the `manage-sandboxes` command */
+  export type ManageSandboxes = ExtensionPreferences & {}
 }
 
 declare namespace Arguments {
@@ -45,11 +47,13 @@ declare namespace Arguments {
   export type CreateSnapshot = {}
   /** Arguments passed to the `quick-create-sandbox` command */
   export type QuickCreateSandbox = {}
-  /** Arguments passed to the `documentation` command */
-  export type Documentation = {}
-  /** Arguments passed to the `dashboard` command */
-  export type Dashboard = {}
+  /** Arguments passed to the `read-documentation` command */
+  export type ReadDocumentation = {}
+  /** Arguments passed to the `open-dashboard` command */
+  export type OpenDashboard = {}
   /** Arguments passed to the `sandbox-web-terminal` command */
   export type SandboxWebTerminal = {}
+  /** Arguments passed to the `manage-sandboxes` command */
+  export type ManageSandboxes = {}
 }
 
