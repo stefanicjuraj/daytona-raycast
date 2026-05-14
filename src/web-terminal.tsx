@@ -2,12 +2,6 @@ import { Action, ActionPanel, Clipboard, Form, Toast, getPreferenceValues, open,
 import { Daytona, DaytonaError, Sandbox } from "@daytona/sdk";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
-type Preferences = {
-  apiKey: string;
-  apiUrl?: string;
-  target?: string;
-};
-
 type FormValues = {
   sandboxId: string;
   expiresInSeconds?: string;

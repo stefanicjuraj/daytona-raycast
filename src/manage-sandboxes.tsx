@@ -14,12 +14,6 @@ import {
 import { Daytona, DaytonaError, Sandbox } from "@daytona/sdk";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
-type Preferences = {
-  apiKey: string;
-  apiUrl?: string;
-  target?: string;
-};
-
 const WEB_TERMINAL_PORT = 22222;
 const WEB_TERMINAL_SIGNED_TTL_SECONDS = 3600;
 
