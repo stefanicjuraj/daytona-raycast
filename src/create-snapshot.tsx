@@ -38,7 +38,10 @@ export default function CreateSnapshotCommand() {
     const trimmed = value?.trim();
     if (!trimmed) return undefined;
 
-    const parts = trimmed.split(",").map((part) => part.trim()).filter(Boolean);
+    const parts = trimmed
+      .split(",")
+      .map((part) => part.trim())
+      .filter(Boolean);
     return parts.length > 0 ? parts : undefined;
   }
 
