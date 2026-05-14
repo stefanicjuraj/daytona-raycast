@@ -48,6 +48,12 @@
       "title": "Dashboard",
       "description": "Open Daytona dashboard.",
       "mode": "no-view"
+    },
+    {
+      "name": "sandbox-web-terminal",
+      "title": "Sandbox Web Terminal",
+      "description": "Open Daytona web terminal for a sandbox.",
+      "mode": "view"
     }
   ],
   "preferences": [
