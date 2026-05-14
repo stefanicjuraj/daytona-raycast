@@ -1,6 +1,6 @@
 # Daytona Changelog
 
-## [Initial Version] - 2026-05-14
+## [Initial Version] - {PR_MERGE_DATE}
 
 ### Added
 
