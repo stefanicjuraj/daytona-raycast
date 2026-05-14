@@ -10,7 +10,6 @@ type Preferences = {
 type FormValues = {
   language: string;
   code: string;
-  sandboxName?: string;
 };
 
 function RunResultDetail(props: { language: string; sandboxId: string; exitCode: number; output: string }) {
@@ -65,7 +64,6 @@ export default function RunCodeCommand() {
 
     try {
       sandbox = await daytona.create({
-        name: values.sandboxName?.trim() || undefined,
         language: values.language,
       });
 
@@ -113,7 +111,6 @@ export default function RunCodeCommand() {
         <Form.Dropdown.Item title="TypeScript" value={CodeLanguage.TYPESCRIPT} />
         <Form.Dropdown.Item title="JavaScript" value={CodeLanguage.JAVASCRIPT} />
       </Form.Dropdown>
-      <Form.TextField id="sandboxName" title="Name" placeholder="My awesome sandbox" />
     </Form>
   );
 }
