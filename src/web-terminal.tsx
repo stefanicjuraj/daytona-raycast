@@ -80,7 +80,7 @@ export default function WebTerminalCommand() {
       const sandbox = await daytona.get(values.sandboxId);
       await sandbox.refreshData();
 
-      if (values.autoStart && sandbox.state !== "started") {
+      if (values.autoStart && sandbox.state?.toString().toLowerCase() !== "started") {
         toast.title = "Starting sandbox";
         await sandbox.start();
       }
