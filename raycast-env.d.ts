@@ -32,6 +32,8 @@ declare namespace Preferences {
   export type Documentation = ExtensionPreferences & {}
   /** Preferences accessible in the `dashboard` command */
   export type Dashboard = ExtensionPreferences & {}
+  /** Preferences accessible in the `sandbox-web-terminal` command */
+  export type SandboxWebTerminal = ExtensionPreferences & {}
 }
 
 declare namespace Arguments {
@@ -47,5 +49,7 @@ declare namespace Arguments {
   export type Documentation = {}
   /** Arguments passed to the `dashboard` command */
   export type Dashboard = {}
+  /** Arguments passed to the `sandbox-web-terminal` command */
+  export type SandboxWebTerminal = {}
 }
 
