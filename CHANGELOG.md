@@ -2,8 +2,6 @@
 
 ## [Initial Version] - {PR_MERGE_DATE}
 
-### Added
-
 - Create a new Daytona sandbox
 - Run code in a Daytona sandbox
 - Create a Daytona snapshot from a base image
