@@ -28,3 +28,12 @@ Create Daytona sandboxes and run code directly from Raycast.
 
 1. Search for **Daytona** in the command palette
 2. Select the command you want to use
+
+## Commands
+
+- **Create Sandbox**: Create a new Daytona sandbox
+- **Run Code**: Run code in a Daytona sandbox
+- **Create Snapshot**: Create a Daytona snapshot from a base image
+- **Quick Create Sandbox**: Create a default Daytona sandbox instantly
+- **Documentation**: Open Daytona documentation
+- **Dashboard**: Open Daytona dashboard
