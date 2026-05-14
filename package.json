@@ -103,7 +103,10 @@
   ],
   "dependencies": {
     "@daytona/sdk": "^0.175.0",
-    "@raycast/api": "^1.104.16"
+    "@raycast/api": "^1.104.17"
+  },
+  "overrides": {
+    "protobufjs": "^8.3.0"
   },
   "devDependencies": {
     "@raycast/eslint-config": "^1.0.6",
