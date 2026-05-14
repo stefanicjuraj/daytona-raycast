@@ -172,7 +172,7 @@ export default function ManageSandboxesCommand() {
   async function handleOpenWebTerminal(sandbox: Sandbox) {
     const toast = await showToast({
       style: Toast.Style.Animated,
-      title: "Opening sandbox web terminal",
+      title: "Opening web terminal",
     });
 
     try {
@@ -249,7 +249,7 @@ export default function ManageSandboxesCommand() {
                   />
                 )}
                 <Action
-                  title="Open Sandbox Web Terminal"
+                  title="Open Web Terminal"
                   icon={Icon.Terminal}
                   onAction={() => handleOpenWebTerminal(sandbox)}
                   shortcut={{ modifiers: ["cmd"], key: "t" }}

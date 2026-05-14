@@ -16,7 +16,7 @@ type FormValues = {
 
 const WEB_TERMINAL_PORT = 22222;
 
-export default function SandboxWebTerminalCommand() {
+export default function WebTerminalCommand() {
   const [sandboxes, setSandboxes] = useState<Sandbox[]>([]);
   const [isLoadingSandboxes, setIsLoadingSandboxes] = useState<boolean>(true);
   const [loadingError, setLoadingError] = useState<string | null>(null);
@@ -79,7 +79,7 @@ export default function SandboxWebTerminalCommand() {
 
     const toast = await showToast({
       style: Toast.Style.Animated,
-      title: "Opening sandbox web terminal",
+      title: "Opening web terminal",
     });
 
     try {
@@ -98,7 +98,7 @@ export default function SandboxWebTerminalCommand() {
       await open(signedPreview.url);
 
       toast.style = Toast.Style.Success;
-      toast.title = "Sandbox web terminal opened";
+      toast.title = "Web terminal opened";
       toast.message = `${sandbox.name} on port ${WEB_TERMINAL_PORT}`;
       toast.primaryAction = {
         title: "Copy URL",
@@ -107,7 +107,7 @@ export default function SandboxWebTerminalCommand() {
     } catch (error) {
       const message = error instanceof DaytonaError || error instanceof Error ? error.message : String(error);
       toast.style = Toast.Style.Failure;
-      toast.title = "Failed to open sandbox web terminal";
+      toast.title = "Failed to open web terminal";
       toast.message = message;
     }
   }
@@ -116,7 +116,7 @@ export default function SandboxWebTerminalCommand() {
     <Form
       actions={
         <ActionPanel>
-          <Action.SubmitForm title="Open Sandbox Web Terminal" onSubmit={handleSubmit} />
+          <Action.SubmitForm title="Open Web Terminal" onSubmit={handleSubmit} />
           <Action title="Refresh Sandboxes" onAction={loadSandboxes} />
         </ActionPanel>
       }

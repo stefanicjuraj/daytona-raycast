@@ -50,8 +50,8 @@
       "mode": "no-view"
     },
     {
-      "name": "sandbox-web-terminal",
-      "title": "Sandbox Web Terminal",
+      "name": "web-terminal",
+      "title": "Web Terminal",
       "description": "Open Daytona web terminal for a sandbox.",
       "mode": "view"
     },

@@ -32,8 +32,8 @@ declare namespace Preferences {
   export type ReadDocumentation = ExtensionPreferences & {}
   /** Preferences accessible in the `open-dashboard` command */
   export type OpenDashboard = ExtensionPreferences & {}
-  /** Preferences accessible in the `sandbox-web-terminal` command */
-  export type SandboxWebTerminal = ExtensionPreferences & {}
+  /** Preferences accessible in the `web-terminal` command */
+  export type WebTerminal = ExtensionPreferences & {}
   /** Preferences accessible in the `manage-sandboxes` command */
   export type ManageSandboxes = ExtensionPreferences & {}
 }
@@ -51,8 +51,8 @@ declare namespace Arguments {
   export type ReadDocumentation = {}
   /** Arguments passed to the `open-dashboard` command */
   export type OpenDashboard = {}
-  /** Arguments passed to the `sandbox-web-terminal` command */
-  export type SandboxWebTerminal = {}
+  /** Arguments passed to the `web-terminal` command */
+  export type WebTerminal = {}
   /** Arguments passed to the `manage-sandboxes` command */
   export type ManageSandboxes = {}
 }
