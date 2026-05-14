@@ -9,6 +9,8 @@ type FormValues = {
 };
 
 const WEB_TERMINAL_PORT = 22222;
+const SANDBOXES_PAGE_SIZE = 100;
+const MAX_SANDBOX_LIST_PAGES = 20;
 
 export default function WebTerminalCommand() {
   const [sandboxes, setSandboxes] = useState<Sandbox[]>([]);
@@ -34,8 +36,26 @@ export default function WebTerminalCommand() {
     setLoadingError(null);
 
     try {
-      const response = await daytona.list(undefined, 1, 100);
-      setSandboxes(response.items);
+      const allSandboxes: Sandbox[] = [];
+
+      for (let page = 1; page <= MAX_SANDBOX_LIST_PAGES; page++) {
+        const response = await daytona.list(undefined, page, SANDBOXES_PAGE_SIZE);
+        allSandboxes.push(...response.items);
+
+        if (response.items.length < SANDBOXES_PAGE_SIZE) {
+          break;
+        }
+
+        if (page === MAX_SANDBOX_LIST_PAGES) {
+          await showToast({
+            style: Toast.Style.Failure,
+            title: "Sandbox list may be incomplete",
+            message: `Showing first ${allSandboxes.length} sandboxes. Refine pagination if needed.`,
+          });
+        }
+      }
+
+      setSandboxes(allSandboxes);
     } catch (error) {
       const message = error instanceof DaytonaError || error instanceof Error ? error.message : String(error);
       setLoadingError(message);
