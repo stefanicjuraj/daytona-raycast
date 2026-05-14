@@ -1,5 +1,6 @@
 import { Action, ActionPanel, Detail, Form, Toast, getPreferenceValues, showToast, useNavigation } from "@raycast/api";
 import { CodeLanguage, Daytona, DaytonaError } from "@daytona/sdk";
+import { useState } from "react";
 
 type Preferences = {
   apiKey: string;
@@ -8,7 +9,6 @@ type Preferences = {
 };
 
 type FormValues = {
-  language: string;
   code: string;
 };
 
@@ -35,6 +35,57 @@ function RunResultDetail(props: { language: string; sandboxId: string; exitCode:
 
 export default function RunCodeCommand() {
   const { push } = useNavigation();
+  const [code, setCode] = useState("");
+  const [language, setLanguage] = useState<CodeLanguage>(CodeLanguage.PYTHON);
+
+  function detectCodeLanguage(input: string): CodeLanguage | null {
+    const trimmed = input.trim();
+    if (!trimmed) return null;
+
+    const tsPatterns = [
+      /\binterface\s+[A-Z]\w*/m,
+      /\btype\s+[A-Z]\w*\s*=/m,
+      /\bimplements\s+[A-Z]\w*/m,
+      /:\s*(string|number|boolean|unknown|any|void|never|Record<|Array<)/m,
+      /\bas\s+const\b/m,
+      /\bsatisfies\b/m,
+    ];
+    if (tsPatterns.some((pattern) => pattern.test(trimmed))) {
+      return CodeLanguage.TYPESCRIPT;
+    }
+
+    const pythonPatterns = [
+      /^\s*def\s+\w+\s*\(/m,
+      /^\s*class\s+\w+\s*[:(]/m,
+      /^\s*from\s+\w+(\.\w+)*\s+import\s+/m,
+      /^\s*import\s+\w+(\.\w+)*/m,
+      /\bif\s+__name__\s*==\s*["']__main__["']\s*:/m,
+      /^\s*print\(.+\)\s*$/m,
+    ];
+    if (pythonPatterns.some((pattern) => pattern.test(trimmed))) {
+      return CodeLanguage.PYTHON;
+    }
+
+    const jsPatterns = [
+      /\b(const|let|var)\s+\w+\s*=/m,
+      /\bfunction\s+\w+\s*\(/m,
+      /\b(console\.log|require\(|module\.exports)\b/m,
+    ];
+    if (jsPatterns.some((pattern) => pattern.test(trimmed))) {
+      return CodeLanguage.JAVASCRIPT;
+    }
+
+    return null;
+  }
+
+  function handleCodeChange(nextCode: string) {
+    setCode(nextCode);
+
+    const detectedLanguage = detectCodeLanguage(nextCode);
+    if (detectedLanguage && detectedLanguage !== language) {
+      setLanguage(detectedLanguage);
+    }
+  }
 
   async function handleSubmit(values: FormValues) {
     if (!values.code.trim()) {
@@ -64,7 +115,7 @@ export default function RunCodeCommand() {
 
     try {
       sandbox = await daytona.create({
-        language: values.language,
+        language,
       });
 
       const response = await sandbox.process.codeRun(values.code);
@@ -75,7 +126,7 @@ export default function RunCodeCommand() {
 
       push(
         <RunResultDetail
-          language={values.language}
+          language={language}
           sandboxId={sandbox.id}
           exitCode={response.exitCode}
           output={response.result}
@@ -105,8 +156,19 @@ export default function RunCodeCommand() {
         </ActionPanel>
       }
     >
-      <Form.TextArea id="code" title="Code Snippet" placeholder="Paste code to execute" />
-      <Form.Dropdown id="language" title="Language" defaultValue={CodeLanguage.PYTHON}>
+      <Form.TextArea
+        id="code"
+        title="Code Snippet"
+        placeholder="Paste code to execute"
+        value={code}
+        onChange={handleCodeChange}
+      />
+      <Form.Dropdown
+        id="language"
+        title="Language"
+        value={language}
+        onChange={(value) => setLanguage(value as CodeLanguage)}
+      >
         <Form.Dropdown.Item title="Python" value={CodeLanguage.PYTHON} />
         <Form.Dropdown.Item title="TypeScript" value={CodeLanguage.TYPESCRIPT} />
         <Form.Dropdown.Item title="JavaScript" value={CodeLanguage.JAVASCRIPT} />
