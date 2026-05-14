@@ -264,7 +264,7 @@ export default function ManageSandboxesCommand() {
                   title="Archive Sandbox"
                   icon={Icon.ArrowDownCircle}
                   onAction={() => handleArchive(sandbox)}
-                  shortcut={{ modifiers: ["cmd"], key: "a" }}
+                  shortcut={{ modifiers: ["cmd", "shift"], key: "a" }}
                 />
                 <Action
                   title="Delete Sandbox"
