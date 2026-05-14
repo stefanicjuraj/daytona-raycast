@@ -2,7 +2,7 @@
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "daytona",
   "title": "Daytona",
-  "description": "Create and manage Daytona sandboxes from Raycast.",
+  "description": "Create Daytona sandboxes and run code directly from Raycast.",
   "icon": "icon.png",
   "author": "jurajstefanic",
   "categories": [
