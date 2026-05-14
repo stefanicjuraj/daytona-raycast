@@ -4,11 +4,12 @@ Create Daytona sandboxes and run code directly from Raycast.
 
 ## Features
 
-- Create Daytona sandboxes
-- Run code in Daytona sandboxes
-- Create Daytona snapshots
-- Open Daytona dashboard
-- Open Daytona documentation
+- Create sandboxes
+- Run code in sandboxes
+- Create snapshots from base images
+- Open sandbox web terminal
+- Go to dashboard
+- Read documentation
 
 ## Quick Start
 
@@ -31,9 +32,10 @@ Create Daytona sandboxes and run code directly from Raycast.
 
 ## Commands
 
-- **Create Sandbox**: Create a new Daytona sandbox
-- **Run Code**: Run code in a Daytona sandbox
-- **Create Snapshot**: Create a Daytona snapshot from a base image
+- **Create Sandbox**: Create a new sandbox
+- **Run Code**: Run code in a sandbox
+- **Create Snapshot**: Create a snapshot from a base image
 - **Quick Create Sandbox**: Create a default Daytona sandbox instantly
-- **Documentation**: Open Daytona documentation
-- **Dashboard**: Open Daytona dashboard
+- **Sandbox Web Terminal**: Open the web terminal for a sandbox
+- **Documentation**: Read documentation
+- **Dashboard**: Go to dashboard
